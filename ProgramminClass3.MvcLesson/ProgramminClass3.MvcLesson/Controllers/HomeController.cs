@@ -8,6 +8,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
     {
         public IActionResult Index()
         {
+            Console.WriteLine("testing");
             return View();
         }
 
