@@ -9,7 +9,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Index()
         {
             return View();
-          
+            Console.WriteLine("test");
         }
 
         public IActionResult Privacy()
