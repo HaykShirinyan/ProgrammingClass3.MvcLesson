@@ -1,18 +1,131 @@
-html {
-  font-size: 14px;
+.title {
+    background-color: darkslategrey;
+    padding: 50px;
+    margin: 20px;
+    color: white;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.navigation {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    background-color: #1e3932;
+    padding: 30px;
+    border: none;
+    margin: 20px;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+    .navigation li {
+        list-style: none;
+    }
 
 body {
-  margin-bottom: 60px;
+    background-image: url(coffee.jpg);
+    background-size: cover;
+}
+
+.navigation li a {
+    text-decoration: none;
+    color: white;
+}
+
+.indexleft {
+    height: 50%;
+    width: 40%;
+    margin: 25px;
+    float: left;
+    background-image: url(coffeehouse.png);
+    background-size: cover;
+}
+
+.indexright {
+    height: 50%;
+    width: 40%;
+    margin: 25px;
+    float: right;
+    background-image: url(logo.jpg);
+    background-size: cover;
+}
+
+.products_left {
+    height: 50%;
+    width: 30%;
+    margin: 25px;
+    float: left;
+    background-image: url(espresso.jpg);
+    background-size: cover;
+    text-align: right;
+    color: white;
+}
+
+.products_right {
+    height: 50%;
+    width: 30%;
+    margin: 25px;
+    float: right;
+    background-image: url(americano.jpg);
+    background-size: cover;
+    text-align: right;
+    color: white;
+}
+
+.products_center {
+    height: 50%;
+    width: 30%;
+    margin: 25px;
+    float: left;
+    background-image: url(capuchino.jpg);
+    background-size: cover;
+    text-align: right;
+    color: white;
+}
+
+.product_links h1 a {
+    text-decoration: none;
+    color: white;
+    list-style: none;
+}
+
+.but {
+    color: white;
+    border: 0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 50px;
+    background: none;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition: all .2s easy;
+    *height: 30px;
+    *line-height: 21px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+    font-feature-settings: "calt";
+    box-sizing: inherit;
+}
+
+.aboutus_text {
+    color: white;
+    background-position: center;
+    display: block;
+    font-size: 30px;
+    box-sizing: inherit;
+    margin: 100px;
+    text-align: center;
+}
+
+.social {
+    background-color: aquamarine;
+    height: 50%;
+    width: 40%;
+    margin: 20px;
+    float: left;
 }
