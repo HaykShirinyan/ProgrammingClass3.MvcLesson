@@ -39,8 +39,8 @@ body {
 }
 
 .indexright {
-    height: 50%;
-    width: 40%;
+    height: 30%;
+    width: 25%;
     margin: 25px;
     float: right;
     background-image: url(logo.jpg);
@@ -48,8 +48,8 @@ body {
 }
 
 .products_left {
-    height: 50%;
-    width: 30%;
+    height: 30%;
+    width: 25%;
     margin: 25px;
     float: left;
     background-image: url(espresso.jpg);
