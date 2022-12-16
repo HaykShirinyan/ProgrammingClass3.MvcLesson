@@ -247,7 +247,7 @@ a {
 .fa {
     padding: 10px;
     font-size: 35px;
-    width: 20px;
+    width: 35px;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
@@ -310,16 +310,13 @@ a {
 .about-content {
     display: flex;
     margin: auto;
-    margin-top: 190px;
-    margin-bottom: 190px;
+    margin-top: 90px;
+    margin-bottom: 90px;
     width: 69%;
     justify-content: space-around;
     flex-wrap: nowrap;
     align-items: center;
 }
-
-}
-
 .about-text {
     width: 30%;
     display: flex;
@@ -337,6 +334,78 @@ a {
     font-size: 16px;
     border-radius: 18px;
 }
+/* contacts page*/
+.contacts-content {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 850px;
+    height: 600px;
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.contacts-text h3 {
+    font-size: 2em;
+    background-color: #0202028a;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Playball', cursive;
+    border-radius: 18px
+}
+
+.contacts-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.contacts-story {
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    padding: 8px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Playball', cursive;
+    background-color: #0202028a;
+    margin-left: 30px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.contacts-links {
+    text-align: center;
+    margin-right: 40px;
+    margin-left: auto;
+    padding: 10px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+    .contacts a {
+        margin: 8px;
+    }
+
+.map-holder {
+    height: 208px;
+    width: 640px;
+    border-radius: 9px;
+    border: 9px solid #060502;
+    opacity: 0.7;
+    margin-top: 20px;
+}
+
+    .map-holder:hover {
+        opacity: 1;
+    }
 
 
 

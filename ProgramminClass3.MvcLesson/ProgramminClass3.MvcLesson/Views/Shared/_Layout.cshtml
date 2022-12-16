@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProgramminClass3.MvcLesson.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProgramminClass3.MvcLesson</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -29,7 +30,30 @@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
-        </nav>
+        </nav>--> 
+        <div class="header">
+            <div class="logo-holder">
+                <img class="logo-image" src="~/image/logo2.jpg" alt="logo" />
+            </div>
+            <div class="nav-holder">
+                <ul class="navigation">
+                    <li class="nav-button">
+                        <a asp-area="" asp-controller="Home" asp-action="About">About us</a>
+                    </li>
+                    <li class="nav-button">
+                        <a asp-area="" asp-controller="Home" asp-action="Menu">Menu</a>
+                    </li>
+                    <li class="nav-button">
+                        <a asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social-holder">
+                <a href="https://www.facebook.com/search/top?q=big_daddysbbq" class="fa fa-facebook" alt="facebook" target="_blank"></a>
+                <a href="https://www.instagram.com/big_daddysbbq/" class="fa fa-instagram" alt="instagram" target="_blank"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -38,8 +62,30 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <!--<div class="container">
             &copy; 2022 - ProgramminClass3.MvcLesson - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>-->
+        <div class="footer">
+            
+            <div class="contacts">
+                <h3 class="discover-story">
+                    Contact Us<br />
+                    <a asp-area="" asp-controller="Home" asp-action="Contacts">click</a>
+                </h3>
+            </div>
+            <div class="logo-holder">
+                <a asp-area="" asp-asp-controller="Home" asp-action="Index">
+                    <img class="logo-image" src="~/image/logo2.jpg" alt="logo" />
+                </a>
+            </div>
+            <div class="soc-media">
+                <h3 class="discover-story">
+                    Find Us<br />
+                    <a href="https://www.facebook.com/search/top?q=big_daddysbbq" class="fa fa-facebook" alt="facebook" target="_blank"></a>
+                    <a href="https://www.instagram.com/big_daddysbbq/" class="fa fa-instagram" alt="instagram" target="_blank"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                </h3>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
