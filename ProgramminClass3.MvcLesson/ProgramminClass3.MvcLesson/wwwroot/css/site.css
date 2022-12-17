@@ -134,6 +134,7 @@ body {
 /* section 2 our story */
 #sec2 {
     display: flex;
+    justify-content: space-around;
 }
 
 .story-text-area {
@@ -312,7 +313,6 @@ a {
     margin: auto;
     margin-top: 90px;
     margin-bottom: 90px;
-    width: 69%;
     justify-content: space-around;
     flex-wrap: nowrap;
     align-items: center;
@@ -406,6 +406,44 @@ a {
     .map-holder:hover {
         opacity: 1;
     }
+/* menu page*/
+h1 {
+}
+
+.menu-conteiner {
+    border: 2px solid red;
+    background-color: #d1cfcfd9;
+    height: 300px;
+    background-color: :#0202028a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+    .menu-conteiner span {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.menu-area {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.menu-title-picture {
+    margin: 0 30px;
+}
+
+    .menu-title-picture img {
+        height: 260px;
+        border-radius: 22px;
+    }
+
+.menu-items {
+}
 
 
 
