@@ -132,9 +132,10 @@ body {
 }
 
 /* section 2 our story */
-#sec2 {
+.story-section {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .story-text-area {
@@ -380,14 +381,16 @@ a {
 }
 
 .contacts-links {
+    display: flex;
+    height: 100px;
     text-align: center;
     margin-right: 40px;
     margin-left: auto;
     padding: 10px;
-    justify-content: space-between;
-    display: flex;
     flex-direction: column;
-    align-content: center;
+    align-content: stretch;
+    justify-content: space-around;
+    align-items: center;
 }
 
     .contacts a {
