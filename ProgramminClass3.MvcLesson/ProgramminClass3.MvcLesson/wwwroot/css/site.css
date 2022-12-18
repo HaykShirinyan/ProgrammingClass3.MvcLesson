@@ -16,3 +16,33 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    margin: 0px;
+    padding: 35px;
+    font-size: 40px;
+    color: #505050;
+}
+
+.picture1 {
+    justify-content: center;
+    display: flex;
+    max-width: 800px;
+    max-height: 956px;
+    object-fit: fill;
+}
+
+.h1 {
+    margin: 10px 20px;
+    font-family: "Oswald";
+   
+}
+
+.picture2 {
+    justify-content: center;
+    vertical-align: middle;
+    object-fit: fill;
+}
