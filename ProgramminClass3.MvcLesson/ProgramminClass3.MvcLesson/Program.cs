@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 
 namespace ProgramminClass3.MvcLesson
 {
