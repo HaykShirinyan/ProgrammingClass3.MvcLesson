@@ -1,4 +1,4 @@
-. menu{
+.menu{
     display:flex;
     justify-content: space-evenly;
     background-color: #b59fe2;
@@ -12,13 +12,18 @@
         color: #7d5f5f;
         text-decoration: none;
     }
-    .styled-checkbox{
+.styled-checkbox{
         display: flex;
         flex-direction:column;
         color: #ac7a7a;
         text-decoration: none;
-    }
+}
         .styled-checkbox a {
             color: #ac7a7a;
             text-decoration: none;
         }
+.yasaman_picture{
+    justify-content:center;
+    vertical-align:middle;
+    object-fit:fill
+}
