@@ -1,18 +1,24 @@
-html {
-  font-size: 14px;
+. menu{
+    display:flex;
+    justify-content: space-evenly;
+    background-color: #b59fe2;
+    color: #7d5f5f;
+    padding: 9px;
 }
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.menu li{
+    list-style: none;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
+    .menu li a {
+        color: #7d5f5f;
+        text-decoration: none;
+    }
+    .styled-checkbox{
+        display: flex;
+        flex-direction:column;
+        color: #ac7a7a;
+        text-decoration: none;
+    }
+        .styled-checkbox a {
+            color: #ac7a7a;
+            text-decoration: none;
+        }
