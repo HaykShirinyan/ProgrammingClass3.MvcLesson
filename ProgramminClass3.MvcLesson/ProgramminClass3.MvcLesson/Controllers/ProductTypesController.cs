@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProgramminClass3.MvcLesson.Data;
-using ProgramminClass3.MvcLesson.Models;
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class CategoriesController : Controller
+    public class ProductTypesController : Controller
     {
         private ApplicationDbContext _dbContext;
 
-        public CategoriesController (ApplicationDbContext dbContext)
+        public ProductTypesController (ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            var categories = _dbContext.Categories.ToList();
+            var productTypes = _dbContext.ProductTypes.ToList();
 
-            return View(categories);
+            return View(productTypes);
         }
+
     }
 }

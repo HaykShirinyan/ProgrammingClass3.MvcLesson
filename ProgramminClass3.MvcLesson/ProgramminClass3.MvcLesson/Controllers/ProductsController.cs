@@ -8,7 +8,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
     {
         private ApplicationDbContext _dbContext;
 
-        public ProductsController(ApplicationDbContext dbContext)
+        public ProductsController (ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

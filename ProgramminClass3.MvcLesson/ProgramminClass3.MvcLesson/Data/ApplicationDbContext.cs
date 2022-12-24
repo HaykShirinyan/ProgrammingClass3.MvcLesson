@@ -10,6 +10,8 @@ namespace ProgramminClass3.MvcLesson.Data
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<ProductType> ProductTypes { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
