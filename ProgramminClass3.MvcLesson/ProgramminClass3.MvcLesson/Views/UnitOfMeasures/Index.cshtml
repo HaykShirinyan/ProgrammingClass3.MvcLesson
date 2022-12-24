@@ -1,0 +1,39 @@
+﻿@model List<UnitOfMeasure>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var UnitOfMeasure in Model)
+            {
+                <tr>
+                    <td>
+                        @UnitOfMeasure.Id
+                    </td>
+                    <td>
+                        @UnitOfMeasure.Name
+                    </td>
+                    <td>
+                        @UnitOfMeasure.Description
+                    </td>
+                    <td>
+                        @UnitOfMeasure.UnitPrice
+                    </td>
+                    <td>
+                        @UnitOfMeasure.Quantity
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
