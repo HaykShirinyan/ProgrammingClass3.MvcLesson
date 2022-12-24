@@ -12,8 +12,8 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221224135856_Category")]
-    partial class Category
+    [Migration("20221224162627_Categories")]
+    partial class Categories
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
