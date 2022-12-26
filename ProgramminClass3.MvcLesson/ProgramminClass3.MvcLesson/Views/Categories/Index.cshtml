@@ -5,31 +5,33 @@
 }
 @model List<Category>
 
-<div>
+    <div>
     <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var category in Model)
-            {
+            <thead>
                 <tr>
-                    <td>
-                        @category.Id
-                    </td>
-                    <td>
-                        @category.Name
-                    </td>
-                    <td>
-                        @category.Description
-                    </td>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
+            </thead>
+
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>
+                            @category.Id
+                        </td>
+                        <td>
+                            @category.Name
+                        </td>
+                        <td>
+                            @category.Description
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+  

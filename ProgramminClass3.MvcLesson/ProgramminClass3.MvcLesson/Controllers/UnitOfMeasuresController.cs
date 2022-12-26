@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProgramminClass3.MvcLesson.Data;
+using ProgramminClass3.MvcLesson.Models;
+
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
@@ -10,12 +12,12 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public UnitOfMeasuresController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
-        }   
+        }
 
         public IActionResult Index()
         {
             var unitOfMeasures = _dbContext.UnitOfMeasures.ToList();
-
+            
             return View(unitOfMeasures);
         }
 

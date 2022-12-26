@@ -4,6 +4,7 @@ namespace ProgramminClass3.MvcLesson.Models
 {
     public class ProductType
     {
+
         [Key]
         public int Id { get; set; }
 
