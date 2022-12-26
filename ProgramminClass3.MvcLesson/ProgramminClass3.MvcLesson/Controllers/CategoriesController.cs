@@ -2,7 +2,6 @@
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
 
-
 namespace ProgramminClass3.MvcLesson.Controllers
 {
     public class CategoriesController : Controller
@@ -20,5 +19,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(categories); 
         }
+
+
     }
 }
