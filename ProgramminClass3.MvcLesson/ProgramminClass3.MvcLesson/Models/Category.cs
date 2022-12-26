@@ -4,7 +4,6 @@ namespace ProgramminClass3.MvcLesson.Models
 {
     public class Category
     {
-        
         [Key]
         public int Id { get; set; }
 
@@ -14,6 +13,5 @@ namespace ProgramminClass3.MvcLesson.Models
 
         [StringLength(500)]
         public string Description { get; set; }
-
     }
 }
