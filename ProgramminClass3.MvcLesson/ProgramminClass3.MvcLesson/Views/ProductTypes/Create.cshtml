@@ -1,6 +1,10 @@
 ﻿@model ProductType
 <div>
     <form asp-controller="ProductTypes" asp-action="Create">
-
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">
+                Name
+            </label>
+        </div>
     </form>
 </div>
