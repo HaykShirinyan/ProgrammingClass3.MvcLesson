@@ -2,6 +2,7 @@
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
 
+
 namespace ProgramminClass3.MvcLesson.Controllers
 {
     public class UnitOfMeasuresController: Controller 
@@ -18,6 +19,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
             var unitOfMeasures = _dbContext.UnitOfMeasures.ToList();
             
             return View(unitOfMeasures);
-        }   
+        }
+
+            
     }
 }
