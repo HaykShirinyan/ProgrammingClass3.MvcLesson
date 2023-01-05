@@ -12,21 +12,13 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             _dbContext = dbContext;
         }
-        [HttpGet]
+
         public IActionResult Index()
         {
             var productTypes = _dbContext.ProductTypes.ToList();
 
             return View(productTypes);
         }
-
-        [HttpGet]
-        public IActionResult Create() 
-        {
-            return View();
-        }
-
-
 
     }
 }
