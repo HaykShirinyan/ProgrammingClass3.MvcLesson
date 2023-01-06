@@ -1,12 +1,20 @@
-﻿@model Category
+﻿@model ProductType
+
 <div>
-    <form asp-controller="Categories" asp-action="Create">
+    <form asp-asp-controller="ProductTypes" asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for=Id class="form-label">
+                Id
+            </label>
+            <input asp-for="Id" class="form-control" readonly />
+        </div>
+
         <div class="mb-3">
             <label asp-for="Name" class="form-label">
                 Name
             </label>
-            <input asp-for="Name" class="form-control"/>
-            <span asp-asp-validation-for="Name" class="text-danger"></span>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
@@ -18,7 +26,7 @@
         </div>
 
         <div class="mb-3">
-            <a asp-controller="Categories" asp-action="Index" class="btn btn-secondary">
+            <a asp-controller="ProductTypes" asp-action="Index" class="btn btn-secondary">
                 Cancel
             </a>
             <button type="submit" class="btn btn-primary">
