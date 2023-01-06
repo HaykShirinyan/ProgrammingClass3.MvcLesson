@@ -1,6 +1,7 @@
 ﻿@model List<UnitOfMeasure>
 
 <div>
+    <a asp-controller="UnitOfMeasures" asp-action="Create" class="btn btn-primary">Create</a>
     <table class="table">
         <thead>
             <tr>
@@ -30,6 +31,14 @@
                     </td>
                     <td>
                         @UnitOfMeasure.Quantity
+                    </td>
+                    <td>
+                        <a asp-controller="UnitOfMeasures"
+                       asp-action="Edit"
+                       asp-route-id="@UnitOfMeasure.Id"
+                       class="btn btn-secondary">
+                            Edit
+                        </a>
                     </td>
                 </tr>
             }
