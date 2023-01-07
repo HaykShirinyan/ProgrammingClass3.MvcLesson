@@ -15,6 +15,7 @@
                 <th>Unit Price</th>
                 <th>Quantity</th>
                 <th>Type</th>
+                <th>Unit of Measure</th>
             </tr>
         </thead>
 
@@ -49,6 +50,12 @@
                         @if (product.Type != null)
                         { 
                             <span>@product.Type.Name</span>
+                        }
+                    </td>
+                    <td>
+                        @if (product.UnitOfMeasure != null)
+                        {
+                            <span>@product.UnitOfMeasure.Name</span>
                         }
                     </td>
                 </tr>

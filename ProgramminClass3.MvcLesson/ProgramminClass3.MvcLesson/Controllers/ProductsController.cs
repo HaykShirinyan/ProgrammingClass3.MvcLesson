@@ -21,6 +21,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
                 .Products
                 // Include is Entity Framework term for SQL join
                 .Include(product => product.Type)
+                .Include(product => product.UnitOfMeasure)
                 .ToList();
 
             return View(products);
@@ -30,6 +31,9 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Create()
         {
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+
             return View();
         }
 
@@ -47,6 +51,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
 
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+
             return View(product);
         }
 
@@ -56,6 +62,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
             var product = _dbContext.Products.Find(id);
 
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(product);
         }
@@ -73,6 +81,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
             }
 
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(product);
         }
