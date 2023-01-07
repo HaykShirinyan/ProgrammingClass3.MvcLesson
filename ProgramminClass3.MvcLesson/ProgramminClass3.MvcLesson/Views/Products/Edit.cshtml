@@ -39,6 +39,24 @@
             <input asp-for="Quantity" class="form-control" />
         </div>
 
+        <div class="mb-3">
+            <label asp-for="TypeId" class="form-label">
+                Type
+            </label>
+            <select asp-for="TypeId" class="form-control">
+                <option value="">
+                    -- Please Select --
+                </option>
+
+                @foreach (var type in ViewBag.ProductTypes as List<ProductType>)
+                {
+                    <option value="@type.Id">
+                        @type.Name
+                    </option>
+                }
+            </select>
+        </div>
+
         <div>
             <a asp-controller="Products" asp-action="Index" class="btn btn-secondary">
                 Cancel
