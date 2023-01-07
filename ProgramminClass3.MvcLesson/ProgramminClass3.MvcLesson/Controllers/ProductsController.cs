@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
 
@@ -16,7 +17,11 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var products = _dbContext.Products.ToList();
+            var products = _dbContext
+                .Products
+                // Include is Entity Framework term for SQL join
+                .Include(product => product.Type)
+                .ToList();
 
             return View(products);
         }
@@ -24,6 +29,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
             return View();
         }
 
@@ -39,6 +45,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+
             return View(product);
         }
 
@@ -46,6 +54,9 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Edit(int id)
         {
             var product = _dbContext.Products.Find(id);
+
+            ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+
             return View(product);
         }
 
@@ -60,6 +71,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
                 return RedirectToAction("Index");
             }
+
+            ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
 
             return View(product);
         }
