@@ -8,7 +8,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
     {
         private ApplicationDbContext _dbContext;
 
-        public ProductTypesController (ApplicationDbContext dbContext)
+        public ProductTypesController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -29,7 +29,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create (ProductType productType)
+        public IActionResult Create(ProductType productType)
         {
             if(ModelState.IsValid)
             {
@@ -43,7 +43,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit (int id)
+        public IActionResult Edit(int id)
         {
             var productTypes = _dbContext.ProductTypes.Find(id);
             return View(productTypes);
@@ -51,7 +51,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit (ProductType productType)
+        public IActionResult Edit(ProductType productType)
         {
             if (ModelState.IsValid) 
             {

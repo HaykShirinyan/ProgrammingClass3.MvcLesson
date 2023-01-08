@@ -13,6 +13,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             _dbContext = dbContext;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -22,14 +23,14 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create ()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create (UnitOfMeasure unitOfMeasure)
+        public IActionResult Create(UnitOfMeasure unitOfMeasure)
         {
             if(ModelState.IsValid)
             {
