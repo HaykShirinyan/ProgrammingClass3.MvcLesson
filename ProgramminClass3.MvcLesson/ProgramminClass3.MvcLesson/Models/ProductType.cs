@@ -13,6 +13,5 @@ namespace ProgramminClass3.MvcLesson.Models
 
         [StringLength(500)]
         public string Description { get; set; }
-
     }
 }
