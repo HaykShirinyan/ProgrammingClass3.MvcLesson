@@ -13,7 +13,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20221225063412_ProducsTypeUnitOfMeasuresCategories")]
-    partial class ProducsTypeUnitOfMeasuresCategories
+    partial class ProducsTypes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
