@@ -10,6 +10,7 @@
                 <th>Description</th>
                 <th>Unit Price</th>
                 <th>Quantity</th>
+                <th>UnitOfMeasure</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -32,6 +33,9 @@
                     </td>
                     <td>
                         @category.Quantity
+                    </td>
+                    <td>
+                        @category.UnitOfMeasure?.Name
                     </td>
                     <td> 
                         <a asp-controller="Category" 

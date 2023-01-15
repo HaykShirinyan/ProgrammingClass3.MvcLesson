@@ -31,6 +31,19 @@
             <input asp-for="Quantity" class="form-control" />
         </div>
 
+        <div class="mb-3">
+            <label asp-for="UnitOfMeasureId" class="form-label">Unit Of Measure</label>
+            <select asp-for="UnitOfMeasureId" class="form-control">
+                <option value="">Please Select</option>
+             
+                @foreach(var type in ViewBag.Categories as List<UnitOfMeasure>)
+                    {
+                    <option value="@type.Id"> @type.Name </option>
+                    }
+               
+            </select>
+        </div>
+
         <div>
             <a asp-controller="Category" asp-action="Index" class="btn btn-secondary">
                 Cancel

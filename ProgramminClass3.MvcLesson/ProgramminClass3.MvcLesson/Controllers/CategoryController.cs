@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Data.Migrations;
 using ProgramminClass3.MvcLesson.Models;
@@ -15,7 +16,10 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
         public IActionResult Index()
         {
-            var categories = _dbContext.Categories.ToList();
+            var categories = _dbContext
+                .Categories
+                .Include(Category => Category.UnitOfMeasure)
+                .ToList();
 
             return View(categories);
         }
@@ -23,6 +27,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpGet]       
         public IActionResult Create()
         {
+            ViewBag.Categories = _dbContext.Categories.ToList();
             return View();
         }
 
@@ -44,6 +49,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.Categories = _dbContext.Categories.ToList();
+
             var category = _dbContext.Categories.Find(id);
 
             return View(category);
