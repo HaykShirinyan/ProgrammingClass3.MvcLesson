@@ -2,7 +2,7 @@
 
 namespace ProgramminClass3.MvcLesson.Models
 {
-    public class Product
+    public class UnitOfMeasure
     {
         [Key]
         public int Id { get; set; }
@@ -14,11 +14,5 @@ namespace ProgramminClass3.MvcLesson.Models
         [StringLength(500)]
         public string Description { get; set; }
 
-        public decimal UnitPrice { get; set; }
-
-        public int Quantity { get; set; }
-
-        public int? TypeId { get; set; }
-        public ProductType Type { get; set; }
     }
 }
