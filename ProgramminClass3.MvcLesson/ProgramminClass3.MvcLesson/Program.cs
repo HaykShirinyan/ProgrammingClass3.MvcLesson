@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 
 namespace ProgramminClass3.MvcLesson
 {
@@ -18,7 +19,8 @@ namespace ProgramminClass3.MvcLesson
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation();
 
             var app = builder.Build();
 
