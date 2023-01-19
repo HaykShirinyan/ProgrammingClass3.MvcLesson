@@ -19,8 +19,7 @@ namespace ProgramminClass3.MvcLesson.Models
 
         public int Quantity { get; set; }
 
-        public int? UnitOfMeasureId { get; set; }
-        public UnitOfMeasure UnitOfMeasure { get; set; }
+        
     }
 
 }

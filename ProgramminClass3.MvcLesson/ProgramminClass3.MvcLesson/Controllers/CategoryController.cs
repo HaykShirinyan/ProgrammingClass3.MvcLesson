@@ -16,10 +16,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
         public IActionResult Index()
         {
-            var categories = _dbContext
-                .Categories
-                .Include(Category => Category.UnitOfMeasure)
-                .ToList();
+            List <Category> categories = _dbContext.Categories.ToList();
 
             return View(categories);
         }
