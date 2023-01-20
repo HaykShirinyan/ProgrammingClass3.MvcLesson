@@ -1,0 +1,30 @@
+﻿@model List<Categories>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var categories in Model)
+            {
+                <tr>
+                    <td>
+                        @categories.Id
+                    </td>
+                    <td>
+                        @categories.Name
+                    </td>
+                    <td>
+                        @categories.Description
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
