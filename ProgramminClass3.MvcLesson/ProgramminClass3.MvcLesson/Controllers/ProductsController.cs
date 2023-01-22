@@ -30,6 +30,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Create()
         {
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
             return View();
         }
 
@@ -56,6 +57,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
             var product = _dbContext.Products.Find(id);
 
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(product);
         }
