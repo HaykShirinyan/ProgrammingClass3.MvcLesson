@@ -1,0 +1,57 @@
+﻿@model List<ProductCategory>
+
+<div>
+    <div>
+        <form asp-controller="ProductCategories" asp-action="Create">
+            <input type="hidden" name="ProductId" value="@ViewBag.ProductId" />
+
+            <div class="mb-3">
+                <div class="input-group">
+                    <select name="CategoryId" class="form-control">
+                        <option value="">
+                            -- Select Category --
+                        </option>
+
+                        @foreach(var category in ViewBag.Categories as List<Category>)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            Add Category
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var productCategory in Model)
+            {
+                <tr>
+                    <td>
+                        @productCategory.Category.Name
+                    </td>
+                    <td>
+                        @productCategory.Category.Description
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
