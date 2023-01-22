@@ -21,6 +21,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
                 .Products
                 // Include is Entity Framework term for SQL join
                 .Include(product => product.Type)
+                .Include(product=> product.UnitOfMeadure)
                 .ToList();
 
             return View(products);
