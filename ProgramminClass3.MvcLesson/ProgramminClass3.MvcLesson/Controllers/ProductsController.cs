@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
 
+
 namespace ProgramminClass3.MvcLesson.Controllers
 {
     public class ProductsController : Controller
@@ -13,29 +14,31 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             _dbContext = dbContext;
         }
-
-        [HttpGet]
         public IActionResult Index()
         {
-            var products = _dbContext
+            var Products = _dbContext
                 .Products
-                // Include is Entity Framework term for SQL join
                 .Include(product => product.Type)
+                .Include(product => product.UnitOfMeasure)
                 .ToList();
 
-            return View(products);
+            return View(Products);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+            
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+            
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Product product)
+
         {
             if (ModelState.IsValid)
             {
@@ -47,15 +50,19 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
 
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+
             return View(product);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var product = _dbContext.Products.Find(id);
-
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+            
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+
+            var product = _dbContext.Products.Find(id);
 
             return View(product);
         }
@@ -73,6 +80,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
             }
 
             ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+
+            ViewBag.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(product);
         }

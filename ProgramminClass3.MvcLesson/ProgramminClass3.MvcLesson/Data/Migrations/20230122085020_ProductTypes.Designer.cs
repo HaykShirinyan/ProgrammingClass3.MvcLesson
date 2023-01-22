@@ -12,8 +12,8 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230115142525_unitId")]
-    partial class unitId
+    [Migration("20230122085020_ProductTypes")]
+    partial class ProductTypes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -299,12 +299,6 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("Id");
 
                     b.ToTable("ProductTypes");
@@ -326,12 +320,6 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

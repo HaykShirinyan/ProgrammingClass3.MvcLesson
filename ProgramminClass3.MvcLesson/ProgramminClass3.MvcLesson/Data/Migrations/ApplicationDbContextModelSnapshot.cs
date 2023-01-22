@@ -264,6 +264,9 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int?>("MeasureId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -275,12 +278,17 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UnitOfMeasureId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TypeId");
+
+                    b.HasIndex("UnitOfMeasureId");
 
                     b.ToTable("Products");
                 });
@@ -323,12 +331,6 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -392,7 +394,13 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .WithMany()
                         .HasForeignKey("TypeId");
 
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.UnitOfMeasure", "UnitOfMeasure")
+                        .WithMany()
+                        .HasForeignKey("UnitOfMeasureId");
+
                     b.Navigation("Type");
+
+                    b.Navigation("UnitOfMeasure");
                 });
 #pragma warning restore 612, 618
         }

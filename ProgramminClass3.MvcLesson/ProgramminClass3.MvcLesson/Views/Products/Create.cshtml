@@ -36,16 +36,30 @@
             <label asp-for="TypeId" class="form-label">
                 Type
             </label>
-            <select asp-for="TypeId" class="form-control">
+            <select asp-for="TypeId" class="form-label">
                 <option value="">
-                    -- Please Select --
+                    Please Select
                 </option>
 
-                @foreach (var type in ViewBag.ProductTypes as List<ProductType>)
+                @foreach(var type in ViewBag.ProductTypes as List<ProductType>)
+                    {
+                        <option value="@type.Id">@type.Name</option>
+                    }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="UnitOfMeasureId" class="form-label">
+               Unit Of Measure
+            </label>
+            <select asp-for="UnitOfMeasureId" class="form-control">
+                <option value="">
+                    Please Select
+                </option>
+                
+                @foreach (var unitOfMeasure in ViewBag.UnitOfMeasures as List<UnitOfMeasure>)
                 {
-                    <option value="@type.Id">
-                        @type.Name
-                    </option>
+                    <option value="@unitOfMeasure.Id">@unitOfMeasure.Name</option>
                 }
             </select>
         </div>

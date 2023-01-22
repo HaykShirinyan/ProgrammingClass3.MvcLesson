@@ -12,8 +12,8 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230107194356_ProductTypeId")]
-    partial class ProductTypeId
+    [Migration("20230122103103_UnitOfMeasureId")]
+    partial class UnitOfMeasureId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -243,6 +243,12 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -260,6 +266,9 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int?>("MeasureId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -271,12 +280,17 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UnitOfMeasureId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TypeId");
+
+                    b.HasIndex("UnitOfMeasureId");
 
                     b.ToTable("Products");
                 });
@@ -382,7 +396,13 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .WithMany()
                         .HasForeignKey("TypeId");
 
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.UnitOfMeasure", "UnitOfMeasure")
+                        .WithMany()
+                        .HasForeignKey("UnitOfMeasureId");
+
                     b.Navigation("Type");
+
+                    b.Navigation("UnitOfMeasure");
                 });
 #pragma warning restore 612, 618
         }

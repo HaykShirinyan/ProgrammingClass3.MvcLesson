@@ -15,6 +15,7 @@
                 <th>Unit Price</th>
                 <th>Quantity</th>
                 <th>Type</th>
+                <th>Measure</th>
             </tr>
         </thead>
 
@@ -46,10 +47,10 @@
                         @product.Quantity
                     </td>
                     <td>
-                        @if (product.Type != null)
-                        { 
-                            <span>@product.Type.Name</span>
-                        }
+                        @product.Type?.Name
+                    </td>
+                    <td>
+                        @product.UnitOfMeasure?.Name
                     </td>
                 </tr>
             }
