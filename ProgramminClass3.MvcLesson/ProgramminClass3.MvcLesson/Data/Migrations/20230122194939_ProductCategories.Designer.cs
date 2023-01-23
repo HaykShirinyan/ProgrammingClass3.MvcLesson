@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgramminClass3.MvcLesson.Data;
 
@@ -11,9 +12,10 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230122194939_ProductCategories")]
+    partial class ProductCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,17 +271,12 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UnitOfMeasureId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TypeId");
-
-                    b.HasIndex("UnitOfMeasureId");
 
                     b.ToTable("Products");
                 });
@@ -296,7 +293,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("ProductCategories");
+                    b.ToTable("ProductCategory");
                 });
 
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductType", b =>
@@ -400,13 +397,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .WithMany()
                         .HasForeignKey("TypeId");
 
-                    b.HasOne("ProgramminClass3.MvcLesson.Models.UnitOfMeasure", "UnitOfMeasure")
-                        .WithMany()
-                        .HasForeignKey("UnitOfMeasureId");
-
                     b.Navigation("Type");
-
-                    b.Navigation("UnitOfMeasure");
                 });
 
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductCategory", b =>
