@@ -7,23 +7,23 @@ namespace ProgramminClass3.MvcLesson.Controllers
 {
     public class ProductCategoriesController : Controller
     {
-        private readonly ApplicationDbContext _dbCotnext;
+        private readonly ApplicationDbContext _dbContext;
 
-        public ProductCategoriesController(ApplicationDbContext dbCotnext)
+        public ProductCategoriesController(ApplicationDbContext dbContext)
         {
-            _dbCotnext = dbCotnext;
+            _dbContext = dbContext;
         }
 
         [HttpGet]
         public IActionResult Index(int id)
         {
-            var productCategories = _dbCotnext
+            var productCategories = _dbContext
                 .ProductCategories
                 .Include(productCategory => productCategory.Category)
                 .Where(productCategory => productCategory.ProductId == id)
                 .ToList();
 
-            ViewBag.Categories = _dbCotnext.Categories.ToList();
+            ViewBag.Categories = _dbContext.Categories.ToList();
             ViewBag.ProductId = id;
 
             return View(productCategories);
@@ -35,8 +35,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             if (ModelState.IsValid)
             {
-                _dbCotnext.ProductCategories.Add(productCategory);
-                _dbCotnext.SaveChanges();
+                _dbContext.ProductCategories.Add(productCategory);
+                _dbContext.SaveChanges();
 
                 return RedirectToAction("Index", new { id = productCategory.ProductId });
             }
