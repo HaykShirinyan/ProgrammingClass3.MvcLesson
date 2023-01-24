@@ -1,7 +1,7 @@
-﻿@model ProductType
+﻿@model Color
 
 <div>
-    <form asp-controller="ProductTypes" asp-action="Create">
+    <form asp-controller="Colors" asp-action="Create">
         <div class="mb-3">
             <label asp-for="Name" class="form-label">
                 Name
@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-            <a asp-controller="ProductTypes" asp-action="Index" class="btn btn-secondary">
+            <a asp-controller="Colors" asp-action="Index" class="btn btn-secondary">
                 Cancel
             </a>
             <button type="submit" class="btn btn-primary">
