@@ -12,6 +12,7 @@ namespace ProgramminClass3.MvcLesson.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Size> Sizes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
