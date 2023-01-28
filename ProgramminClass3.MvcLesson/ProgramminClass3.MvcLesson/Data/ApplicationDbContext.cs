@@ -12,6 +12,8 @@ namespace ProgramminClass3.MvcLesson.Data
         public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Size> Sizes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
