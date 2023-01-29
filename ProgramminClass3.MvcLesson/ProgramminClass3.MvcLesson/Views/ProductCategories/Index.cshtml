@@ -1,18 +1,18 @@
-﻿@model List<ProductCategory>
+﻿@model ProductCategoryListViewModel
 
 <div>
     <div>
         <form asp-controller="ProductCategories" asp-action="Create">
-            <input type="hidden" name="ProductId" value="@ViewBag.ProductId" />
+            <input type="hidden" asp-for="ProductId" />
 
             <div class="mb-3">
                 <div class="input-group">
-                    <select name="CategoryId" class="form-control">
+                    <select asp-for="CategoryId" class="form-control">
                         <option value="">
                             -- Select Category --
                         </option>
 
-                        @foreach(var category in ViewBag.Categories as List<Category>)
+                        @foreach(var category in Model.Categories)
                         {
                             <option value="@category.Id">@category.Name</option>
                         }
@@ -41,7 +41,7 @@
         </thead>
 
         <tbody>
-            @foreach(var productCategory in Model)
+            @foreach(var productCategory in Model.ProductCategories)
             {
                 <tr>
                     <td>
