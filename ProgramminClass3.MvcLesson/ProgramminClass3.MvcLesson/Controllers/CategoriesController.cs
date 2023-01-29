@@ -24,7 +24,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Category category)
+        public IActionResult Create(Categories category)
         {
             if (ModelState.IsValid)
             {
@@ -34,11 +34,31 @@ namespace ProgramminClass3.MvcLesson.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
+            return View(category);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var category = _dbContext.Categories.Find(id);  
+            return View(category);  
+        }
+
+        [HttpPost]
+     
+        public IActionResult Edit(Categories category)
+        {
+            if (ModelState.IsValid)
+            {
+                _dbContext.Categories.Update(category);
+                _dbContext.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            
 
             return View(category);
         }
-
 
 
     }

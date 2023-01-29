@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProgramminClass3.MvcLesson.Data;
+using ProgramminClass3.MvcLesson.Models;
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
@@ -23,7 +24,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(UnitOfMeasure unitOfMeasure)
+        public IActionResult Create(UnitOfMeasures unitOfMeasure)
         {
             if (ModelState.IsValid)
             {
@@ -33,8 +34,27 @@ namespace ProgramminClass3.MvcLesson.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductTypes = _dbContext.ProductTypes.ToList();
 
+            return View(unitOfMeasure);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var unitOfMeasure= _dbContext.UnitOfMeasures.Find(id);
+            return View(unitOfMeasure);
+        }
+        [HttpPost]
+        public IActionResult Edit(UnitOfMeasures unitOfMeasure)
+        {
+            if (ModelState.IsValid)
+            {
+                _dbContext.UnitOfMeasures.Update(unitOfMeasure);
+                _dbContext.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+           
             return View(unitOfMeasure);
         }
     }
