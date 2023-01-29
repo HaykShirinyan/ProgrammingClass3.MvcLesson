@@ -8,10 +8,11 @@ namespace ProgramminClass3.MvcLesson.Data
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Categories> Categories { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-
         public DbSet<UnitOfMeasures> UnitOfMeasures { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<Size> Sizes { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
