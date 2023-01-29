@@ -19,7 +19,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var products = _dbContext
                 .Products
-                // Include is Entity Framework term for SQL join
+                
                 .Include(product => product.Type)
                 .ToList();
 
