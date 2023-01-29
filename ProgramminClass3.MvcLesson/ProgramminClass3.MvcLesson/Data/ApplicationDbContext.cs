@@ -18,5 +18,12 @@ namespace ProgramminClass3.MvcLesson.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<ProductCategory>()
+                .HasKey(productCategory => new { productCategory.ProductId, productCategory.CategoryId });
+        }
     }
 }
