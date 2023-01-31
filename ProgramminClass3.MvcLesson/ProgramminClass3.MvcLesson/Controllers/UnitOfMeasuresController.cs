@@ -46,6 +46,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Edit(int id)
         {
             var unitOfMeasure = _dbContext.UnitOfMeasures.Find(id);
+
             return View(unitOfMeasure);
         }
 
