@@ -46,6 +46,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Edit(int id)
         {
             var category = _dbContext.Categories.Find(id);
+
             return View(category);
         }
 

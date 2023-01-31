@@ -18,10 +18,6 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var productTypes = _dbContext.ProductTypes.ToList();
 
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            var productTypes = _dbContext.ProductTypes.Find(id);
             return View(productTypes);
         }
 
@@ -47,9 +43,10 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int productTypeId)
+        public IActionResult Edit(int id)
         {
-            var productType = _dbContext.ProductTypes.Find(productTypeId);
+            var productType = _dbContext.ProductTypes.Find(id);
+
             return View(productType);
         }
 

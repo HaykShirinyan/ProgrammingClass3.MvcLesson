@@ -20,13 +20,13 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var listViewModel = new ProductCategoryListViewModel();
 
-            listViewModel.ProductCategories = _dbCotnext
+            listViewModel.ProductCategories = _dbContext
                 .ProductCategories
                 .Include(productCategory => productCategory.Category)
                 .Where(productCategory => productCategory.ProductId == id)
                 .ToList();
 
-            listViewModel.Categories = _dbCotnext.Categories.ToList();
+            listViewModel.Categories = _dbContext.Categories.ToList();
             listViewModel.ProductId = id;
 
             return View(listViewModel);
