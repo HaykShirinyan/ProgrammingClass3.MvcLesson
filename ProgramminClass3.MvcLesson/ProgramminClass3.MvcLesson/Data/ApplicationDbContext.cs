@@ -19,5 +19,6 @@ namespace ProgramminClass3.MvcLesson.Data
             : base(options)
         {
         }
+      
     }
 }
