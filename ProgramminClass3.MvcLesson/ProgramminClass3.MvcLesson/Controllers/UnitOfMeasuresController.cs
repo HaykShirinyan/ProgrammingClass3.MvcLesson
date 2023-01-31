@@ -5,7 +5,7 @@ using ProgramminClass3.MvcLesson.Models;
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class UnitOfMeasuresController: Controller 
+    public class UnitOfMeasuresController : Controller
     {
         private ApplicationDbContext _dbContext;
 
@@ -14,7 +14,6 @@ namespace ProgramminClass3.MvcLesson.Controllers
             _dbContext = dbContext;
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
             var unitOfMeasures = _dbContext.UnitOfMeasures.ToList();
@@ -32,7 +31,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(UnitOfMeasure unitOfMeasure)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _dbContext.UnitOfMeasures.Add(unitOfMeasure);
                 _dbContext.SaveChanges();
@@ -47,7 +46,6 @@ namespace ProgramminClass3.MvcLesson.Controllers
         public IActionResult Edit(int id)
         {
             var unitOfMeasure = _dbContext.UnitOfMeasures.Find(id);
-
             return View(unitOfMeasure);
         }
 
@@ -55,7 +53,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(UnitOfMeasure unitOfMeasure)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _dbContext.UnitOfMeasures.Update(unitOfMeasure);
                 _dbContext.SaveChanges();

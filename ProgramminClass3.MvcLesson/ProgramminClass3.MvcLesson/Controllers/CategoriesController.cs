@@ -20,8 +20,9 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(categories); 
         }
+
         [HttpGet]
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
         }
@@ -30,13 +31,14 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category category)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _dbContext.Categories.Add(category);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
+
             return View(category);
         }
 
@@ -51,7 +53,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Category category)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _dbContext.Categories.Update(category);
                 _dbContext.SaveChanges();

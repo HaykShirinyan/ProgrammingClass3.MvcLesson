@@ -18,6 +18,10 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var productTypes = _dbContext.ProductTypes.ToList();
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var productTypes = _dbContext.ProductTypes.Find(id);
             return View(productTypes);
         }
 
@@ -31,7 +35,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(ProductType productType)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _dbContext.ProductTypes.Add(productType);
                 _dbContext.SaveChanges();
@@ -43,17 +47,17 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int productTypeId)
         {
-            var productTypes = _dbContext.ProductTypes.Find(id);
-            return View(productTypes);
+            var productType = _dbContext.ProductTypes.Find(productTypeId);
+            return View(productType);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductType productType)
         {
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 _dbContext.ProductTypes.Update(productType);
                 _dbContext.SaveChanges();
