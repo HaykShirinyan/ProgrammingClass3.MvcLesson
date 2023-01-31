@@ -33,7 +33,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var productViewModel = new ProductViewModel
             {
-                ProductTypes = _dbContext.ProductTypes.ToList()
+                ProductTypes = _dbContext.ProductTypes.ToList(),
+                UnitOfMeasures = _dbContext.UnitOfMeasures.ToList()
             };
            
             return View(productViewModel);
@@ -52,6 +53,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
             }
 
             productViewModel.ProductTypes = _dbContext.ProductTypes.ToList();
+            productViewModel.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(productViewModel);
         }
@@ -62,7 +64,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
             var productViewModel = new ProductViewModel
             {
                 Product = _dbContext.Products.Find(id),
-                ProductTypes = _dbContext.ProductTypes.ToList()
+                ProductTypes = _dbContext.ProductTypes.ToList(),
+                UnitOfMeasures = _dbContext.UnitOfMeasures.ToList()
             };
 
             return View(productViewModel);
@@ -81,6 +84,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
             }
 
             productViewModel.ProductTypes = _dbContext.ProductTypes.ToList();
+            productViewModel.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(productViewModel);
         }

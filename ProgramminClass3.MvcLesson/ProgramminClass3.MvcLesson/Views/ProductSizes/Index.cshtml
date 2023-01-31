@@ -1,17 +1,17 @@
-﻿@model List<ProductSize>
+﻿@model ProductSizesViewModel
 <div>
     <div>
         <form asp-controller="ProductSizes" asp-action="Create">
-            <input type="hidden" name="ProductId" value="@ViewBag.ProductId" />
+            <input type="hidden" asp-for="ProductId" />
 
             <div class="mb-3">
                 <div class="input-group">
-                    <select name="SizeId" class="form-control">
+                    <select asp-for="SizeId" class="form-control">
                         <option value="">
                             -- Select Size --
                         </option>
 
-                        @foreach(var size in ViewBag.Sizes as List<Size>)
+                        @foreach(var size in Model.Sizes)
                         {
                             <option value="@size.Id">
                                 @size.Name
@@ -42,7 +42,7 @@
         </thead>
 
         <tbody>
-            @foreach(var productSize in Model)
+            @foreach(var productSize in Model.ProductSizes)
             {
                 <tr>
                     <td>

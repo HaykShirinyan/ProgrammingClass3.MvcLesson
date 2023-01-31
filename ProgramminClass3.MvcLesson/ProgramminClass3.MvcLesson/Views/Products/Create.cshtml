@@ -59,7 +59,7 @@
                     -- Please Select --
                 </option>
 
-                @foreach (var unitOfMeasure in ViewBag.UnitOfMeasures as List<UnitOfMeasure>)
+                @foreach (var unitOfMeasure in Model.UnitOfMeasures)
                 {
                     <option value="@unitOfMeasure.Id">
                         @unitOfMeasure.Name

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
+using ProgramminClass3.MvcLesson.ViewModels;
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
@@ -17,14 +18,17 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index(int id)
         {
-            var ProductSizes = _dbContext.ProductSizes
+            var listViewModel = new ProductSizesViewModel();
+
+            listViewModel.ProductSizes = _dbContext.ProductSizes
                 .Include(productSize => productSize.Size)
                 .Where(productSize => productSize.ProductId == id)
                 .ToList();
-            ViewBag.Sizes = _dbContext.Sizes.ToList();
-            ViewBag.ProductId = id;
 
-            return View(ProductSizes);
+            listViewModel.Sizes = _dbContext.Sizes.ToList();
+            listViewModel.ProductId = id;
+
+            return View(listViewModel);
         }
 
         [HttpPost]
