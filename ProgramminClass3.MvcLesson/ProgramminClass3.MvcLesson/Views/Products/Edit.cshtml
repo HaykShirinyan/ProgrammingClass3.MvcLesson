@@ -60,30 +60,30 @@
         <div class="mb-3">
             <a asp-controller="ProductCategories" 
                 asp-action="Index" 
-                asp-route-id="@Model.Id"
+                asp-route-id="@Model.Product.Id"
                 class="btn btn-secondary">
                     Categories
             </a>
             <a asp-controller="ProductColors"
                 asp-action="Index"
-                asp-route-id="@Model.Id"
+               asp-route-id="@Model.Product.Id"
                 class="btn btn-secondary">
                     Colors
             </a>
 
             <a asp-controller="ProductSizes"
                asp-action="Index"
-               asp-route-id="@Model.Id"
+               asp-route-id="@Model.Product.Id"
                class="btn btn-secondary">
                 Sizes
             </a>
         </div>
 
         <div class=mb-3>
-            <label asp-for="UnitOfMeasureId" class="form-label">
+            <label asp-for="Product.UnitOfMeasureId" class="form-label">
                 Unit of Measure
             </label>
-            <select asp-for="UnitOfMeasureId" class="form-control">
+            <select asp-for="Product.UnitOfMeasureId" class="form-control">
                 <option value="">
                     -- Please Select --
                 </option>
