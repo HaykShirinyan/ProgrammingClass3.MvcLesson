@@ -3,7 +3,7 @@ using ProgramminClass3.MvcLesson.Models;
 
 namespace ProgramminClass3.MvcLesson.ViewModels
 {
-    public class ProductColorsListViewModel
+    public class ProductColorListViewModel
     {
         public List<ProductColor> ProductColors { get; set; }
 

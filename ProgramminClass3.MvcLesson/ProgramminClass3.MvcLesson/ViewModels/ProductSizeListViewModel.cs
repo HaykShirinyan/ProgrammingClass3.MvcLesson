@@ -2,7 +2,7 @@
 
 namespace ProgramminClass3.MvcLesson.ViewModels
 {
-    public class ProductSizesViewModel
+    public class ProductSizeListViewModel
     {
         public List<ProductSize> ProductSizes { get; set; }
 
