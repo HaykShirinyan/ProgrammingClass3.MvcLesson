@@ -64,5 +64,27 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(unitOfMeasure);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id) 
+        {
+            var unitOfMeasure = _dbContext.UnitOfMeasures.Find(id);
+
+            return View(unitOfMeasure);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var unitOfMeasure = _dbContext.UnitOfMeasures.Find(id);
+
+            _dbContext.UnitOfMeasures.Remove(unitOfMeasure);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        
     }
 }

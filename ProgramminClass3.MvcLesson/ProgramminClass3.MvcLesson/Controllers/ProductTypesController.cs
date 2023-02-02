@@ -64,5 +64,26 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(productType);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var productType = _dbContext.ProductTypes.Find(id);
+
+            return View(productType);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var productType = _dbContext.ProductTypes.Find(id);
+
+            _dbContext.ProductTypes.Remove(productType);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

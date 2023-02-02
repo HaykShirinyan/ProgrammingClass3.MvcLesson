@@ -1,0 +1,42 @@
+﻿@model UnitOfMeasure
+
+<div>
+    <dl>
+        <dt>
+            Id
+        </dt>
+        <dd>
+            @Model.Id
+        </dd>
+
+        <dt>
+            Name
+        </dt>
+        <dd>
+            @Model.Name
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Model.Description
+        </dd>
+    </dl>
+
+    <p>
+        Are You sure that You want to delete this item?
+    </p>
+
+    <form asp-controller="UnitOfMeasures" asp-action="Delete" asp-route-id="@Model.Id">
+        <div>
+            <a asp-controller="UnitOfMeasures" asp-action="Index" class="btn btn-secondary">
+                No
+            </a>
+
+            <button type="submit" class="btn btn-primary">
+                Yes
+            </button>
+        </div>
+    </form>
+</div>

@@ -64,5 +64,26 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(category);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var category = _dbContext.Categories.Find(id);
+
+            return View(category);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var category = _dbContext.Categories.Find(id);
+
+            _dbContext.Categories.Remove(category);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

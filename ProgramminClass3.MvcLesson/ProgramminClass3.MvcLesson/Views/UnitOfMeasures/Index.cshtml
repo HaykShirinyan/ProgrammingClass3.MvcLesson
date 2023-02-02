@@ -23,8 +23,15 @@
                         asp-action="Edit"
                         asp-route-id="@unitOfMeasure.Id"
                         class="btn btn-secondary">
-                        Edit
-                    </a>
+                            Edit
+                        </a>
+
+                        <a asp-controller="UnitOfMeasures"
+                       asp-action="Delete"
+                       asp-route-id="@unitOfMeasure.Id"
+                       class="btn btn-danger">
+                            Delete
+                        </a>
                     </td>
                     <td>
                         @unitOfMeasure.Id
