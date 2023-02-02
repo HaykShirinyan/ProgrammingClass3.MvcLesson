@@ -6,11 +6,11 @@ using ProgramminClass3.MvcLesson.Models;
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoriesController : Controller
     {
         private ApplicationDbContext _dbContext;
 
-        public CategoryController(ApplicationDbContext dbContext)
+        public CategoriesController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
