@@ -18,7 +18,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpGet]
         public IActionResult Index(int id)
         {
-            var listViewModel = new ProductColorsListViewModel();
+            var listViewModel = new ProductColorListViewModel();
 
             listViewModel.ProductColors = _dbContext
                 .ProductColors
