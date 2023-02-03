@@ -11,6 +11,11 @@ namespace ProgramminClass3.MvcLesson.Data
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<Color> Colors { get; set; }
+        public DbSet<ProductColor> ProductColors { get; set; } 
+        public DbSet<Size> Sizes { get; set; } 
+        public DbSet<ProductSize> ProductSizes { get; set; } 
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,6 +28,12 @@ namespace ProgramminClass3.MvcLesson.Data
 
             builder.Entity<ProductCategory>()
                 .HasKey(productCategory => new { productCategory.ProductId, productCategory.CategoryId });
+
+            builder.Entity<ProductColor>()
+                .HasKey(productColor => new { productColor.ProductId, productColor.ColorId });
+
+            builder.Entity<ProductSize>()
+                .HasKey(productSize => new { id = productSize.ProductId, productSize.SizeId });
         }
     }
 }

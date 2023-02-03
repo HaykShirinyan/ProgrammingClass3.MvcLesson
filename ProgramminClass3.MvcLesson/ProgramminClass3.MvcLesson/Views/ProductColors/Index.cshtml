@@ -1,0 +1,57 @@
+﻿@model ProductColorListViewModel
+
+<div>
+    <div>
+        <form asp-controller="ProductColors" asp-action="Create">
+            <input asp-for="ProductId" type="hidden" />
+
+            <div class="mb-3">
+                <div class="input-group">
+                    <select asp-for="ColorId" class="form-control">
+                        <option value="">
+                            -- Select Category --
+                        </option>
+
+                        @foreach (var color in Model.Colors)
+                        {
+                            <option value="@color.Id">@color.Name</option>
+                        }
+                    </select>
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            Add Color
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var productColors in Model.ProductColors)
+            {
+                <tr>
+                    <td>
+                        @productColors.Color.Name
+                    </td>
+                    <td>
+                        @productColors.Color.Description
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

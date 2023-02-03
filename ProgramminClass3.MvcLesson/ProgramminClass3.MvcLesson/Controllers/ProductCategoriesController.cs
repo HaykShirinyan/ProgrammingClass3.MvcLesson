@@ -46,5 +46,11 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(productCategory);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            return View();
+        }
     }
 }

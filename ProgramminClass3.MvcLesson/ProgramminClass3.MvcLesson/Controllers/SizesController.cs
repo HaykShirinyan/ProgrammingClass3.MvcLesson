@@ -2,21 +2,23 @@
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
 
-
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class CategoriesController : Controller
+    public class SizesController : Controller
     {
         private ApplicationDbContext _dbContext;
-        public CategoriesController(ApplicationDbContext dbContext)
+
+        public SizesController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            var categories = _dbContext.Categories.ToList();
+            var sizes = _dbContext.Sizes.ToList();
 
-            return View(categories); 
+            return View(sizes);
         }
 
         [HttpGet]
@@ -27,60 +29,62 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
+        public IActionResult Create(Size size)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Categories.Add(category);
+                _dbContext.Sizes.Add(size);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            return View(size);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var category = _dbContext.Categories.Find(id);
-            return View(category);
+            var size = _dbContext.Sizes.Find(id);
+
+            return View(size);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Size size)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Categories.Update(category);
+                _dbContext.Sizes.Update(size);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            return View(size);
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var category = _dbContext.Categories.Find(id);
+            var size = _dbContext.Sizes.Find(id);
 
-            return View(category);
+            return View(size);
         }
 
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult DeletConfirmed(int id)
         {
-            var category = _dbContext.Categories.Find(id);
+            var size = _dbContext.Sizes.Find(id);
 
-            _dbContext.Categories.Remove(category);
+            _dbContext.Sizes.Remove(size);
             _dbContext.SaveChanges();
 
             return View("Index");
         }
+
     }
 }

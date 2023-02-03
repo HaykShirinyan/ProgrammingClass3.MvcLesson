@@ -9,6 +9,7 @@ namespace ProgramminClass3.MvcLesson.ViewModels
         public List<Category> Categories { get; set; }
 
         public int ProductId { get; set; }
+
         public int CategoryId { get; set; }
     }
 }

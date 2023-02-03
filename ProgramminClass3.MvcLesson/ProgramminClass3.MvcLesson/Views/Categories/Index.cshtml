@@ -26,6 +26,12 @@
                             class="btn btn-secondary">
                             Edit
                         </a>
+                        <a asp-controller="Categories"
+                            asp-action="Delete"
+                            asp-route-id="@category.Id"
+                            class="btn btn-danger"> 
+                            Delete
+                        </a>
                     </td>
                     <td>
                         @category.Id

@@ -2,21 +2,23 @@
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Models;
 
-
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class CategoriesController : Controller
+    public class ColorsController : Controller
     {
         private ApplicationDbContext _dbContext;
-        public CategoriesController(ApplicationDbContext dbContext)
+
+        public ColorsController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            var categories = _dbContext.Categories.ToList();
+            var colors = _dbContext.Colors.ToList();
 
-            return View(categories); 
+            return View(colors);
         }
 
         [HttpGet]
@@ -27,47 +29,48 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
+        public IActionResult Create(Color color)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Categories.Add(category);
+                _dbContext.Colors.Add(color);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            return View(color);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var category = _dbContext.Categories.Find(id);
-            return View(category);
+            var color = _dbContext.Colors.Find(id);
+
+            return View(color);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Color color)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Categories.Update(category);
+                _dbContext.Colors.Update(color);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(category);
+            return View(color);
         }
 
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var category = _dbContext.Categories.Find(id);
+            var color = _dbContext.Colors.Find(id);
 
-            return View(category);
+            return View(color);
         }
 
         [HttpPost]
@@ -75,9 +78,9 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            var category = _dbContext.Categories.Find(id);
+            var color = _dbContext.Colors.Find(id);
 
-            _dbContext.Categories.Remove(category);
+            _dbContext.Colors.Remove(color);
             _dbContext.SaveChanges();
 
             return View("Index");
