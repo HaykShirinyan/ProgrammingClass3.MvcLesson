@@ -58,6 +58,14 @@
         </div>
 
         <div class="mb-3">
+            <a asp-controller="ProductCategories" 
+                asp-action="Index" 
+                asp-route-id="@Model.Id">
+                Categories
+            </a>
+        </div>
+
+        <div class="mb-3">
             <label asp-for="UnitOfMeasureId" class="form-label">
                 Unit of Measure
             </label>
