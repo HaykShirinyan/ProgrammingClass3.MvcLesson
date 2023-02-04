@@ -1,19 +1,19 @@
 ﻿@model Category
 
 <div>
-    <form asp-controller="Category" asp-action="Edit">
+    <form asp-controller="Categories" asp-action="Edit">
         <div class="mb-3">
             <label asp-for="Id" class="form-label">
-                ID
+                Id
             </label>
-            <input asp-for="Id" class="form-control" readonly/>
+            <input asp-for="Id" class="form-control" readonly />
         </div>
 
         <div class="mb-3">
             <label asp-for="Name" class="form-label">
                 Name
             </label>
-            <input asp-for="Name" class="form-control" />
+            <input asp-for="Name" class="form-control"/>
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
@@ -21,27 +21,14 @@
             <label asp-for="Description" class="form-label">
                 Description
             </label>
-            <textarea asp-for="Description" class="form-control"></textarea>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="UnitPrice" class="form-label">
-                Unit Price
-            </label>
-            <input asp-for="UnitPrice" class="form-control" />
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Quantity" class="form-label">
-                Quantity
-            </label>
-            <input asp-for="Quantity" class="form-control" />
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger" ></span>
         </div>
 
        
 
         <div>
-            <a asp-controller="Category" asp-action="Index" class="btn btn-secondary">
+            <a asp-controller="Categories" asp-action="Index" class="btn btn-secondary">
                 Cancel
             </a>
             <button type="submit" class="btn btn-primary">

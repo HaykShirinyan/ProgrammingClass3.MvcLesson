@@ -4,7 +4,7 @@
     <form asp-controller="UnitOfMeasures" asp-action="Edit">
         <div class="mb-3">
             <label asp-for="Id" class="form-label">
-                ID
+                Id
             </label>
             <input asp-for="Id" class="form-control" readonly />
         </div>
@@ -21,7 +21,8 @@
             <label asp-for="Description" class="form-label">
                 Description
             </label>
-            <textarea asp-for="Description" class="form-control"></textarea>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
 
         <div>

@@ -1,10 +1,13 @@
 ﻿@model List<UnitOfMeasure>
 
 <div>
-    <a asp-controller="UnitOfMeasures" asp-action="Create" class="btn btn-primary">Create</a>
+    <a asp-controller="UnitOfMeasures" asp-action="Create" class="btn btn-primary">
+        Create
+    </a>
     <table class="table">
         <thead>
             <tr>
+                <th>Actions</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
@@ -16,7 +19,15 @@
             {
                 <tr>
                     <td>
-                        @UnitOfMeasure.Id
+                        <a asp-controller="ProductTypes"
+                           asp-action="Edit"
+                           asp-route-id="@unitOfMeasure.Id"
+                           class="btn btn-secondary">
+                            Edit
+                        </a>
+                    </td>
+                    <td>
+                        @unitOfMeasure.Id
                     </td>
                     <td>
                         @UnitOfMeasure.Name
