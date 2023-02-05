@@ -27,7 +27,7 @@ namespace ProgramminClass3.MvcLesson.Data
             builder.Entity<ProductCategory>()
                 .HasKey(productCategory => new { productCategory.ProductId, productCategory.CategoryId });
       
-            builder.Entity<productColor>()
+            builder.Entity<ProductColor>()
                 .HasKey(productColor => new { productColor.ProductId, productColor.ColorId });
         }
     }

@@ -7,15 +7,18 @@ namespace ProgramminClass3.MvcLesson.Controllers
     public class ColorsController : Controller
     {
         private ApplicationDbContext _dbContext;
+
         public ColorsController (ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index()
         {
             var colors = _dbContext.Colors.ToList();
             return View(colors);
         }
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -26,10 +29,10 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Color color)
         {
-           
-                _dbContext.Colors.Add(color);
-                _dbContext.SaveChanges();
-                return RedirectToAction("Index");
+            _dbContext.Colors.Add(color);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -42,17 +45,15 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
             return View(color);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Color color)
         {
-     
-                _dbContext.Colors.Update(color);
-                _dbContext.SaveChanges();
+            _dbContext.Colors.Update(color);
+            _dbContext.SaveChanges();
 
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
-            //return View(product);
-  
     }
 }

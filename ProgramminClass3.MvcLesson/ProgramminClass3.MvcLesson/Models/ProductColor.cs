@@ -1,6 +1,6 @@
 ﻿namespace ProgramminClass3.MvcLesson.Models
 {
-    public class productColor
+    public class ProductColor
     {
         public int ProductId { get; set; }
         public Product Product { get; set; }
