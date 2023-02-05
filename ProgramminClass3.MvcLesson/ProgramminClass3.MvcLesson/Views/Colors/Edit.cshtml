@@ -1,14 +1,20 @@
-﻿@model Category
+﻿@model Color
 
 <div>
-    <form sp-controller="Categories" asp-action="Edit">
+    <form asp-controller="Colors" asp-action="Edit">
+
+         <div class="mb-3">
+            <label asp-for="Id" class="form-label">
+                Id
+            </label>
+            <input asp-for="Id" class="form-control" readonly />
+        </div>
 
         <div class="mb-3">
             <label asp-for="Name" class="form-label">
                 Name
             </label>
             <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
@@ -16,13 +22,10 @@
                 Description
             </label>
             <textarea asp-for="Description" class="form-control"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
 
-
-
         <div>
-            <a asp-controller="Categories" asp-action="Index" class="btn btn-secondary">
+            <a asp-controller="Colors" asp-action="Index" class="btn btn-secondary">
                 Cancel
             </a>
 
@@ -30,5 +33,6 @@
                 Save
             </button>
         </div>
+
     </form>
 </div>

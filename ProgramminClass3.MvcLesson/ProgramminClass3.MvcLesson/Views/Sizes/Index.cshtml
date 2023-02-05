@@ -1,0 +1,29 @@
+﻿@model List<Size>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var size in Model)
+            {
+                <tr>
+                    <td>
+                        @size.Id
+                    </td>
+                    <td>
+                        @size.Name
+                    </td>
+                    <td>
+                        @size.Name
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

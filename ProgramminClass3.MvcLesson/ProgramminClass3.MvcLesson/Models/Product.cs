@@ -21,7 +21,7 @@ namespace ProgramminClass3.MvcLesson.Models
         public int? TypeId { get; set; }
         public ProductType Type { get; set; }
 
-        public int UnitOfMeasuresId { get; set; }
+        public int? UnitOfMeasuresId { get; set; }
         public UnitOfMeasures UnitOfMeasures { get; set; }
     }
 }

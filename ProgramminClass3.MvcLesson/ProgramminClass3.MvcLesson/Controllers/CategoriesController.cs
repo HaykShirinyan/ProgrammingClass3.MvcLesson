@@ -24,7 +24,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Categories category)
+        public IActionResult Create(Category category)
         {
             if (ModelState.IsValid)
             {
@@ -45,7 +45,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
         [HttpPost]
      
-        public IActionResult Edit(Categories category)
+        public IActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {

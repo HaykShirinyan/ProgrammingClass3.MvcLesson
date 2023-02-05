@@ -2,7 +2,7 @@
 
 namespace ProgramminClass3.MvcLesson.Models
 {
-    public class Categories
+    public class Category
     {
         [Key]
         public int Id { get; set; }

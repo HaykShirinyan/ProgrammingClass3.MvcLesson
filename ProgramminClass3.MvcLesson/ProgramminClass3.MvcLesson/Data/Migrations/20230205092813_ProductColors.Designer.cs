@@ -12,8 +12,8 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230129092624_UnitOfMeasuresId")]
-    partial class UnitOfMeasuresId
+    [Migration("20230205092813_ProductColors")]
+    partial class ProductColors
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -226,7 +226,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.Categories", b =>
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -246,6 +246,28 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.Color", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colors");
                 });
 
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.Product", b =>
@@ -271,7 +293,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.Property<int?>("TypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UnitOfMeasuresId")
+                    b.Property<int?>("UnitOfMeasuresId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("UnitPrice")
@@ -284,6 +306,36 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.HasIndex("UnitOfMeasuresId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategories");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.productColor", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "ColorId");
+
+                    b.HasIndex("ColorId");
+
+                    b.ToTable("productColor");
                 });
 
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductType", b =>
@@ -306,6 +358,28 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductTypes");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.Size", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sizes");
                 });
 
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.UnitOfMeasures", b =>
@@ -389,13 +463,49 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
 
                     b.HasOne("ProgramminClass3.MvcLesson.Models.UnitOfMeasures", "UnitOfMeasures")
                         .WithMany()
-                        .HasForeignKey("UnitOfMeasuresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UnitOfMeasuresId");
 
                     b.Navigation("Type");
 
                     b.Navigation("UnitOfMeasures");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.productColor", b =>
+                {
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.Color", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Color");
+
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }
