@@ -1,41 +1,44 @@
 ﻿@model List<UnitOfMeasure>
 
 <div>
-    <a asp-controller="UnitOfMeasures" asp-action="Create" class="btn btn-primary">Create</a>
+    <a asp-controller="UnitOfMeasures" asp-action="Create" class="btn btn-primary">
+        Create
+    </a>
     <table class="table">
         <thead>
             <tr>
+                <th>Actions</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
             </tr>
         </thead>
 
         <tbody>
-            @foreach (var UnitOfMeasure in Model)
+            @foreach (var unitOfMeasure in Model)
             {
                 <tr>
                     <td>
-                        @UnitOfMeasure.Id
+                        <a asp-controller="ProductTypes"
+                           asp-action="Edit"
+                           asp-route-id="@unitOfMeasure.Id"
+                           class="btn btn-secondary">
+                            Edit
+                        </a>
                     </td>
                     <td>
-                        @UnitOfMeasure.Name
+                        @unitOfMeasure.Id
                     </td>
                     <td>
-                        @UnitOfMeasure.Description
+                        @unitOfMeasure.Name
                     </td>
                     <td>
-                        @UnitOfMeasure.UnitPrice
-                    </td>
-                    <td>
-                        @UnitOfMeasure.Quantity
+                        @unitOfMeasure.Description
                     </td>
                     <td>
                         <a asp-controller="UnitOfMeasures"
                        asp-action="Edit"
-                       asp-route-id="@UnitOfMeasure.Id"
+                       asp-route-id="@unitOfMeasure.Id"
                        class="btn btn-secondary">
                             Edit
                         </a>

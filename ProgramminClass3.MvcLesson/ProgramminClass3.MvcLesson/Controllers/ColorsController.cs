@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
-using ProgramminClass3.MvcLesson.Data.Migrations;
 using ProgramminClass3.MvcLesson.Models;
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class UnitOfMeasuresController : Controller
+    public class ColorsController : Controller
     {
         private ApplicationDbContext _dbContext;
 
-        public UnitOfMeasuresController(ApplicationDbContext dbContext)
+        public ColorsController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index()
         {
-            var UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
+            var Colors = _dbContext.Colors.ToList();
 
-            return View(UnitOfMeasures);
+            return View(Colors);
         }
-
 
         [HttpGet]
         public IActionResult Create()
@@ -29,40 +29,40 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(UnitOfMeasure unitOfMeasure)
+        public IActionResult Create(Color Color)
 
         {
             if (ModelState.IsValid)
             {
-                _dbContext.UnitOfMeasures.Add(unitOfMeasure);
+                _dbContext.Colors.Add(Color);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            return View(unitOfMeasure);
+            return View(Color);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var unitOfMeasure = _dbContext.UnitOfMeasures.Find(id);
+            var color = _dbContext.Colors.Find(id);
 
-            return View(unitOfMeasure);
+            return View(color);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(UnitOfMeasure unitOfMeasure)
+        public IActionResult Edit(Color color)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.UnitOfMeasures.Update(unitOfMeasure);
+                _dbContext.Colors.Update(color);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(unitOfMeasure);
+            return View(color);
         }
     }
 }

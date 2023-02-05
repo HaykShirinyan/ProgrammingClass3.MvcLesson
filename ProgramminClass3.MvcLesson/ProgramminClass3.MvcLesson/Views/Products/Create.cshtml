@@ -1,55 +1,72 @@
-﻿@model Product
+﻿@model ProductViewModel
 
 <div>
     <form asp-controller="Products" asp-action="Create">
         <div class="mb-3">
-            <label asp-for="Name" class="form-label">
+            <label asp-for="Product.Name" class="form-label">
                 Name
             </label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <input asp-for="Product.Name" class="form-control" />
+            <span asp-validation-for="Product.Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="Description" class="form-label">
+            <label asp-for="Product.Description" class="form-label">
                 Description
             </label>
-            <textarea asp-for="Description" class="form-control"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
+            <textarea asp-for="Product.Description" class="form-control"></textarea>
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="UnitPrice" class="form-label">
+            <label asp-for="Product.UnitPrice" class="form-label">
                 Unit Price
             </label>
-            <input asp-for="UnitPrice" class="form-control" />
+            <input asp-for="Product.UnitPrice" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label asp-for="Quantity" class="form-label">
+            <label asp-for="Product.Quantity" class="form-label">
                 Quantity
             </label>
-            <input asp-for="Quantity" class="form-control" />
+            <input asp-for="Product.Quantity" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label asp-for="TypeId" class="form-label">
+            <label asp-for="Product.TypeId" class="form-label">
                 Type
             </label>
-            <select asp-for="TypeId" class="form-control">
+            <select asp-for="Product.TypeId" class="form-control">
                 <option value="">
-                    -- Please Select --
+                    Please Select
                 </option>
 
-                @foreach (var type in ViewBag.ProductTypes as List<ProductType>)
+                @foreach(var type in Model.ProductTypes)
                 {
                     <option value="@type.Id">
                         @type.Name
                     </option>
+                           
                 }
             </select>
         </div>
-
+        
+        <div class="mb-3">
+            <label name="unitOfMeasureId" class="form-label">
+               Unit Of Measure
+            </label>
+            <select name="unitOfMeasurId" class="form-control">
+                <option value="">
+                    Please Select
+                </option>
+                
+                @foreach (var type in Model.UnitOfMeasures)
+                {
+                    <option value="@type.Id">@type.Name</option>
+                }
+            </select>
+        </div>
+        
         <div>
             <a asp-controller="Products" asp-action="Index" class="btn btn-secondary">
                 Cancel

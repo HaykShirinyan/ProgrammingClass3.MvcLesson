@@ -12,8 +12,8 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230107194356_ProductTypeId")]
-    partial class ProductTypeId
+    [Migration("20230122194939_ProductCategories")]
+    partial class ProductCategories
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -281,6 +281,21 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("ProductCategory");
+                });
+
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductType", b =>
                 {
                     b.Property<int>("Id")
@@ -383,6 +398,25 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .HasForeignKey("TypeId");
 
                     b.Navigation("Type");
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductCategory", b =>
+                {
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

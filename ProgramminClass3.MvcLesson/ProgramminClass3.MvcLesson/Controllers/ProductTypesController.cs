@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProgramminClass3.MvcLesson.Data;
-using ProgramminClass3.MvcLesson.Data.Migrations;
 using ProgramminClass3.MvcLesson.Models;
+
 
 namespace ProgramminClass3.MvcLesson.Controllers
 {
@@ -15,9 +16,9 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
         public IActionResult Index()
         {
-            var ProductTypes = _dbContext.ProductTypes.ToList();
+            var productTypes = _dbContext.ProductTypes.ToList();
 
-            return View(ProductTypes);
+            return View(productTypes);
         }
 
         [HttpGet]
@@ -29,7 +30,6 @@ namespace ProgramminClass3.MvcLesson.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(ProductType productType)
-
         {
             if (ModelState.IsValid)
             {
@@ -38,14 +38,14 @@ namespace ProgramminClass3.MvcLesson.Controllers
 
                 return RedirectToAction("Index");
             }
+
             return View(productType);
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int productTypeId)
         {
-            var productType = _dbContext.ProductTypes.Find(id);
-
+            var productType = _dbContext.ProductTypes.Find(productTypeId);
             return View(productType);
         }
 

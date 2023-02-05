@@ -1,12 +1,19 @@
-﻿@model ProductType
+﻿@model Category
 
 <div>
-    <form asp-controller="ProductTypes" asp-action="Create">
+    <form asp-controller="Categories" asp-action="Edit">
+        <div class="mb-3">
+            <label asp-for="Id" class="form-label">
+                Id
+            </label>
+            <input asp-for="Id" class="form-control" readonly />
+        </div>
+
         <div class="mb-3">
             <label asp-for="Name" class="form-label">
                 Name
             </label>
-            <input asp-for="Name" class="form-control" />
+            <input asp-for="Name" class="form-control"/>
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
@@ -15,14 +22,15 @@
                 Description
             </label>
             <input asp-for="Description" class="form-control" />
-            <span asp-validation-for="Description" class="text-danger"></span>
+            <span asp-validation-for="Description" class="text-danger" ></span>
         </div>
 
+       
+
         <div>
-            <a asp-controller="ProductTypes" asp-action="Index" class="btn btn-secondary">
+            <a asp-controller="Categories" asp-action="Index" class="btn btn-secondary">
                 Cancel
             </a>
-
             <button type="submit" class="btn btn-primary">
                 Save
             </button>

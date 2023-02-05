@@ -12,8 +12,8 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230115142525_unitId")]
-    partial class unitId
+    [Migration("20230122093503_ProductTypeId")]
+    partial class ProductTypeId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -274,10 +274,15 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TypeId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Products");
                 });
@@ -298,12 +303,6 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -326,12 +325,6 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -387,6 +380,15 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.Product", b =>
+                {
+                    b.HasOne("ProgramminClass3.MvcLesson.Models.ProductType", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId");
+
+                    b.Navigation("Type");
                 });
 #pragma warning restore 612, 618
         }

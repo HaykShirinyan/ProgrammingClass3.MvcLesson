@@ -1,0 +1,57 @@
+﻿@model ProductSizeListViewModel
+
+<div>
+    <div>
+        <form asp-controller="ProductSizes" asp-action="Create">
+            <input type="hidden" asp-for="ProductId" />
+
+            <div class="mb-3">
+                <div class="input-group">
+                    <select asp-for="SizeId" class="form-control">
+                        <option value="">
+                            -- Select Size --
+                        </option>
+
+                        @foreach (var size in Model.Sizes)
+                        {
+                            <option value="@size.Id">@size.Name</option>
+                        }
+                    </select>
+
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            Add Size
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var productSize in Model.ProductSizes)
+            {
+                <tr>
+                    <td>
+                        @productSize.Size.Name
+                    </td>
+                    <td>
+                        @productSize.Size.Description
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

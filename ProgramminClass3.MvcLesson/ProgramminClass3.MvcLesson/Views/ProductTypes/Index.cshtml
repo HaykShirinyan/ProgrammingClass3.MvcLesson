@@ -1,41 +1,42 @@
 ﻿@model List<ProductType>
 
 <div>
-    <a asp-controller="ProductTypes" asp-action="Create" class="btn btn-primary">Create</a>
-    <table class="table">
+    <a asp-controller="ProductTypes" asp-action="Create" class="btn btn-primary">
+        Create
+    </a>
+    <table class=" table">
         <thead>
             <tr>
+                <th>Actions</th>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
+                <
             </tr>
         </thead>
 
         <tbody>
-            @foreach (var ProductType in Model)
+            @foreach (var productType in Model)
             {
                 <tr>
                     <td>
-                        @ProductType.Id
+                        <a asp-controller="ProductTypes"
+                            asp-action="Edit"
+                            asp-route-id="@productType.Id"
+                            class="btn btn-secondary">
+                            Edit
+                        </a>
                     </td>
                     <td>
-                        @ProductType.Name
+                        @productType.Id
                     </td>
                     <td>
-                        @ProductType.Description
-                    </td>
-                    <td>
-                        @ProductType.UnitPrice
-                    </td>
-                    <td>
-                        @ProductType.Quantity
+                        @productType.Description
                     </td>
                     <td>
                     <a asp-controller="ProductTypes"
                    asp-action="Edit"
-                   asp-route-id="@ProductType.Id"
+                   asp-route-id="@productType.Id"
                    class="btn btn-secondary">
                         Edit
                     </a>

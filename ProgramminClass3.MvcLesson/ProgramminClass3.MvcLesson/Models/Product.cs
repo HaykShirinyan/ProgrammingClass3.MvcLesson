@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProgramminClass3.MvcLesson.Models
 {
@@ -20,5 +21,9 @@ namespace ProgramminClass3.MvcLesson.Models
 
         public int? TypeId { get; set; }
         public ProductType Type { get; set; }
+
+        public int? UnitOfMeasureId { get; set; }
+        public UnitOfMeasure UnitOfMeasure { get; set; }
+        
     }
 }

@@ -1,74 +1,75 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Data.Migrations;
 using ProgramminClass3.MvcLesson.Models;
 
+
+
 namespace ProgramminClass3.MvcLesson.Controllers
 {
-    public class CategoryController : Controller
+    public class UnitOfMeasuresController : Controller
     {
         private ApplicationDbContext _dbContext;
 
-        public CategoryController(ApplicationDbContext dbContext)
+        public UnitOfMeasuresController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index()
         {
-            var categories = _dbContext
-                .Categories
-                .Include(Category => Category.UnitOfMeasure)
-                .ToList();
+            var UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
-            return View(categories);
+            return View(UnitOfMeasures);
         }
 
-        [HttpGet]       
+
+        [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Categories = _dbContext.Categories.ToList();
+           
             return View();
         }
+            
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
-        
+        public IActionResult Create(UnitOfMeasure unitOfMeasure)
+
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Categories.Add(category);
+                _dbContext.UnitOfMeasures.Add(unitOfMeasure);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-               return View(category);
+            return View(unitOfMeasure);
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Categories = _dbContext.Categories.ToList();
+            var unitOfMeasure = _dbContext.UnitOfMeasures.Find(id);
 
-            var category = _dbContext.Categories.Find(id);
-
-            return View(category);
+            return View(unitOfMeasure);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(UnitOfMeasure unitOfMeasure)
         {
             if (ModelState.IsValid)
             {
-                _dbContext.Categories.Update(category);
+                _dbContext.UnitOfMeasures.Update(unitOfMeasure);
                 _dbContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(category);
-        }
+            return View(unitOfMeasure);
+        }    
     }
 }

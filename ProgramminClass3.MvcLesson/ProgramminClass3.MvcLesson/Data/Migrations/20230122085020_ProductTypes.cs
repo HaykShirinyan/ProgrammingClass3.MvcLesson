@@ -8,6 +8,14 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropIndex(
+                name: "IX_Products_TypeId",
+                table: "Products");
+
+            migrationBuilder.DropColumn(
+                name: "TypeId",
+                table: "Products");
+
             migrationBuilder.CreateTable(
                 name: "ProductTypes",
                 columns: table => new
@@ -15,9 +23,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
-                    UnitPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,6 +35,17 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ProductTypes");
+
+            migrationBuilder.AddColumn<int>(
+                name: "TypeId",
+                table: "Products",
+                type: "int",
+                nullable: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_TypeId",
+                table: "Products",
+                column: "TypeId");
         }
     }
 }
