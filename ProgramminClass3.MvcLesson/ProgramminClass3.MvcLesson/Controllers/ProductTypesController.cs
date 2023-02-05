@@ -18,7 +18,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var productTypes = _dbContext.ProductTypes.ToList();
 
-            return View(productType);
+            return View(productTypes);
         }
 
         [HttpGet]

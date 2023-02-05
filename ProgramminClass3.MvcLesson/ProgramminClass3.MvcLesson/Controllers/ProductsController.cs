@@ -17,13 +17,13 @@ namespace ProgramminClass3.MvcLesson.Controllers
         }
         public IActionResult Index()
         {
-            var Products = _dbContext
+            var products = _dbContext
                 .Products
                 .Include(product => product.Type)
                 .Include(product => product.UnitOfMeasure)
                 .ToList();
 
-            return View(Products);
+            return View(products);
         }
 
         [HttpGet]
@@ -31,7 +31,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
         {
             var productViewModel = new ProductViewModel
             {
-                ProductTypes = _dbContext.ProductTypes.ToList()
+                ProductTypes = _dbContext.ProductTypes.ToList(),
+                UnitOfMeasures = _dbContext.UnitOfMeasures.ToList()
             };
            
             return View(productViewModel);
@@ -50,6 +51,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
             }
 
             productViewModel.ProductTypes = _dbContext.ProductTypes.ToList();
+            productViewModel.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(productViewModel);
         }
@@ -60,7 +62,8 @@ namespace ProgramminClass3.MvcLesson.Controllers
             var productViewModel = new ProductViewModel
             {
                 Product = _dbContext.Products.Find(id),
-                ProductTypes = _dbContext.ProductTypes.ToList()
+                ProductTypes = _dbContext.ProductTypes.ToList(),
+                UnitOfMeasures = _dbContext.UnitOfMeasures.ToList()
             };
 
             return View(productViewModel);
@@ -79,6 +82,7 @@ namespace ProgramminClass3.MvcLesson.Controllers
             }
 
             productViewModel.ProductTypes = _dbContext.ProductTypes.ToList();
+            productViewModel.UnitOfMeasures = _dbContext.UnitOfMeasures.ToList();
 
             return View(productViewModel);
         }

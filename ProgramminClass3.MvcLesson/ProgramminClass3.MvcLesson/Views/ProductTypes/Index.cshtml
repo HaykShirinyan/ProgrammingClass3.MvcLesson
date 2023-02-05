@@ -16,7 +16,7 @@
         </thead>
 
         <tbody>
-            @foreach (var ProductType in Model)
+            @foreach (var productType in Model)
             {
                 <tr>
                     <td>
@@ -31,12 +31,12 @@
                         @productType.Id
                     </td>
                     <td>
-                        @ProductType.Description
+                        @productType.Description
                     </td>
                     <td>
                     <a asp-controller="ProductTypes"
                    asp-action="Edit"
-                   asp-route-id="@ProductType.Id"
+                   asp-route-id="@productType.Id"
                    class="btn btn-secondary">
                         Edit
                     </a>

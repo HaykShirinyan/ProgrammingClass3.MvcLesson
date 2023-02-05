@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgramminClass3.MvcLesson.Data;
 
@@ -11,9 +12,10 @@ using ProgramminClass3.MvcLesson.Data;
 namespace ProgramminClass3.MvcLesson.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230203193521_ProductColors")]
+    partial class ProductColors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -339,22 +341,7 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
 
                     b.HasIndex("ColorId");
 
-                    b.ToTable("ProductColors");
-                });
-
-            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductSize", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SizeId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "SizeId");
-
-                    b.HasIndex("SizeId");
-
-                    b.ToTable("ProductSizes");
+                    b.ToTable("ProductColor");
                 });
 
             modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductType", b =>
@@ -525,25 +512,6 @@ namespace ProgramminClass3.MvcLesson.Data.Migrations
                     b.Navigation("Color");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("ProgramminClass3.MvcLesson.Models.ProductSize", b =>
-                {
-                    b.HasOne("ProgramminClass3.MvcLesson.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProgramminClass3.MvcLesson.Models.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Size");
                 });
 #pragma warning restore 612, 618
         }

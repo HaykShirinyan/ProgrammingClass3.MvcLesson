@@ -4,6 +4,7 @@ using ProgramminClass3.MvcLesson.Data;
 using ProgramminClass3.MvcLesson.Data.Migrations;
 using ProgramminClass3.MvcLesson.Models;
 
+
 namespace ProgramminClass3.MvcLesson.Controllers
 {
     public class CategoriesController : Controller
@@ -68,47 +69,28 @@ namespace ProgramminClass3.MvcLesson.Controllers
             return View(category);
         }
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Category category)
-        {
-            if (ModelState.IsValid)
-            {
-                _dbContext.Categories.Add(category);
-                _dbContext.SaveChanges();
-
-                return RedirectToAction("Index");
-            }
-
-            return View(category);
-        }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Delete(int id)
         {
             var category = _dbContext.Categories.Find(id);
+
+            
+
             return View(category);
         }
 
         [HttpPost]
+        [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult DeleteCofirmed(int id)
         {
-            if (ModelState.IsValid)
-            {
-                _dbContext.Categories.Update(category);
-                _dbContext.SaveChanges();
+            var category = _dbContext.Categories.Find(id);
 
-                return RedirectToAction("Index");
-            }
+            _dbContext.Categories.Remove(category);
+            _dbContext.SaveChanges();
 
-            return View(category);
+            return RedirectToAction("Index");
         }
     }
 }
